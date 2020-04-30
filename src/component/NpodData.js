@@ -3,24 +3,39 @@ import axios from "axios";
 
 import Npod from "./Npod";
 
-export default function testList() {
-  const [text, setTest] = useState();
-  
+export default function NpodData() {
+  const [text, setTest] = useState([]);
+
+  const key = "Aeyyd7vDYTVuCTrsTzH6gjaHeijstPm4OU3ejcl0";
+
+  // const [...data] = text;
+
+  useEffect(() => {
     axios
-      .get(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=2012-03-20`)
+      .get(`https://api.nasa.gov/planetary/apod?api_key=${key}`)
       .then((response) => {
-        console.log(response.data);
-        setTest(response);
-      })
+        console.log("the Response" + response.data);
+
+        setTest(response.data);
+      }) //close response
       .catch((err) => {
         console.log("couldn;t get the resuelt" + err);
-      });
-  };
+      }); //close error
+  }, []);
 
   return (
     <div className="photo">
-      <Npod item1={text} />
-      <ul></ul>
+      <ul>
+        <Npod
+          copyright={text.copyright}
+          date={text.id}
+          title={text.title}
+          explanation={text.explanation}
+          url={text.url}
+          hdurl={text.hdurl}
+          type={text.media_type}
+        />
+      </ul>
     </div>
   );
 }

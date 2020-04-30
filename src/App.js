@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import Npod from "./component/Npod"; //It has to be defined
+import Npod from "./component/NpodData"; //It has to be defined
 
 function App() {
   return (

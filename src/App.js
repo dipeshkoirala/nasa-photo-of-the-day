@@ -14,7 +14,6 @@ function App() {
         !
       </p>
       <Npod />
-      {/* It has to be green */}
     </div>
   );
 }

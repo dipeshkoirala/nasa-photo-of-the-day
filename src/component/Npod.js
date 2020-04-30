@@ -1,14 +1,55 @@
 import React from "react";
-//import NpodData from "./NpodData";
+import styled from "styled-components";
+
+import NpodData from "./NpodData";
+const h3 = ({ className, children }) => (
+  <div className={"dipesh"}>{children}</div>
+);
+
+const StyledH3 = styled.h3`
+  background: dodgerblue;
+  border: 2px solid green;
+  font-weight: bold;
+  font-size: 50px;
+  color: red;
+  border-radius: 10px;
+`;
+
+const Para = styled.p`
+  background-color: green
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 15px;
+  text-align:justify
+ 
+`;
+
+const H1 = styled.span`
+  font-size: 20px;
+  color: red;
+  margin: 10px;
+`;
+const H11 = styled.span`
+  font-size: 30px;
+  color: white;
+  background: black;
+`;
+
+const Image = styled.img`
+  width: 98%;
+`;
 const Npod = (props) => {
   return (
     <li className="Photo-of-day" key={props.date}>
-      <h3>Copyright: {props.copyright}</h3>
-      <h1>Title: {props.title}</h1>
+      <StyledH3>Copyright: {props.copyright}</StyledH3>
+      <h1>
+        <H1>Title:</H1>
+        <H11> {props.title}</H11>
+      </h1>
       <p>Date: {props.date}</p>
-      <p>Description:{props.explanation}</p>
-      <img src={props.url} />
-      {/* <img src={props.hdurl} /> */}
+      <Para>Description:{props.explanation}</Para>
+
+      <img src={props.url} alt={props.alt} />
     </li>
   );
 };

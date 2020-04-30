@@ -28,7 +28,7 @@ export default function NpodData() {
       <ul>
         <Npod
           copyright={text.copyright}
-          date={text.id}
+          date={text.date}
           title={text.title}
           explanation={text.explanation}
           url={text.url}
